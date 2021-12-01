@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
+import Technologies from "./Technologies";
+import Header from "./Header";
 import './App.css';
+import {Raiting} from "./components/Raiting/Raiting";
+import {Accordeon} from "./components/Accordeon/Accordeon";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    return < div className="App">
+        <Raiting value={3}/>
+        <Header/>
+        <Accordeon title={'menu1'} collapsed={true} />
+        <Accordeon title={"а я в серединке"} collapsed={true} />
+        <Technologies/>
+        <Raiting value={4}/>
+        <Accordeon title={"menu2 footer"}  collapsed={true} />
     </div>
-  );
 }
 
 export default App;

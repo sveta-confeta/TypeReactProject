@@ -1,0 +1,42 @@
+import React from "react";
+
+type AccordeonPropsType = {
+    title: string
+    collapsed: boolean
+}
+
+export function Accordeon(props: AccordeonPropsType) {
+    return <>
+
+        <AccordeonTitle title={props.title}/>
+        <AccordeonBody body={props.collapsed}/>
+    </>
+}
+
+type AccordeonTitlePropsType = {
+    title: string
+}
+
+function AccordeonTitle(props: AccordeonTitlePropsType) {
+    return <h1>{props.title}</h1>
+}
+
+type AccordeonBodyPropsType = {
+    body: boolean
+}
+
+function AccordeonBody(props: AccordeonBodyPropsType) {
+    if(props.body){
+        return null;
+    }else{
+        return <ul>
+            <li>number 1</li>
+            <li>number 2</li>
+            <li>number 3</li>
+        </ul>
+
+    }
+
+
+}
+
