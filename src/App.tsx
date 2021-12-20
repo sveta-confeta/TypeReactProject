@@ -4,10 +4,20 @@ import Header from "./Header";
 import './App.css';
 import {Raiting} from "./components/Raiting/Raiting";
 import {Accordeon} from "./components/Accordeon/Accordeon";
+import {OnOff} from "./components/OnOff/OnOff";
+import {UncontrolledAccordeon} from "./components/Accordeon Uncontroller/Accordeon";
 
 function App() {
     return < div className="App">
+        <OnOff />
+        {/*<OnOff on={false}/>*/}
+        {/*<OnOff on={true}/>*/}
+          ///
+        <UncontrolledAccordeon title={'Меню UncontrolledAccordeon'}/>
+        <UncontrolledAccordeon title={'Пользователи UncontrolledAccordeon'}/>
 
+
+           ////
         <Header/>
         <Accordeon title={'menu1'} collapsed={true} />
         <Accordeon title={"а я в серединке"} collapsed={true} />

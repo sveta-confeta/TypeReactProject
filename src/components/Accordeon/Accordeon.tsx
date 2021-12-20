@@ -9,7 +9,6 @@ type AccordeonPropsType = {
 
 export function Accordeon(props: AccordeonPropsType) {
     return <>
-
         <AccordeonTitle title={props.title}/>
         {!props.collapsed && <AccordeonBody/>}
     </>
@@ -23,11 +22,9 @@ function AccordeonTitle(props: AccordeonTitlePropsType) {
     return <h1>{props.title}</h1>
 }
 
-type AccordeonBodyPropsType = {
-    body: boolean
-}
 
-export function AccordeonBody(props: AccordeonBodyPropsType) {
+
+export function AccordeonBody() {
     return <ul>
         <li>number 1</li>
         <li>number 2</li>

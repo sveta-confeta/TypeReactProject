@@ -7,11 +7,11 @@ type RaitingPropsType = {
 export function Raiting(props: RaitingPropsType) {
     return (                              //мы всегда возращаем пять звездочек, поэтому не будем дублировать код
         <div>
-            <Star selected={props.value > 0}/> {/*внутри пишем условие скольким звездочкам гореть*/}
-            <Star selected={props.value > 1}/>  {/*идет сравнение валуе и цифры . и если true-то будут гореть*/}
-            <Star selected={props.value > 2}/>
-            <Star selected={props.value > 3}/>
-            <Star selected={props.value > 4}/>
+            <Star selected={props.value > 0}/><button>1</button> {/*внутри пишем условие скольким звездочкам гореть*/}
+            <Star selected={props.value > 1}/> <button>2</button> {/*идет сравнение валуе и цифры . и если true-то будут гореть*/}
+            <Star selected={props.value > 2}/><button>3</button>
+            <Star selected={props.value > 3}/><button>4</button>
+            <Star selected={props.value > 4}/><button>5</button>
         </div>
     )
 
