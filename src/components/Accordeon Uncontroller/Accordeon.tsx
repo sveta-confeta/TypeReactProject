@@ -2,28 +2,37 @@ import React, {useState} from "react";
 
 type AccordeonPropsType = {
     title: string
-    //collapsed: boolean
+
 
 }
 
 
 export function UncontrolledAccordeon(props: AccordeonPropsType) {
 
-    let[collapsed,setCollapsed]=useState(false);
+    let[collapsed,setCollapsed]=useState(false); //так как по умолчанию колабсед фолсе,то !colapsed это true
     return <>
-        <AccordeonTitle title={props.title}/> <button onClick={()=>{setCollapsed(true)}}>Свернуть</button>
-        <button onClick={()=>{setCollapsed(false)}}>Развернуть</button>
+        <AccordeonTitle
+            title={props.title}
+           onClick={()=>{setCollapsed(!collapsed)} }
+
+        />
+
+
 
         {!collapsed && <AccordeonBody/>}
     </>
 }
+// <button onClick={()=>{setCollapsed(!collapsed)}}>Toggle</button>
 
 type AccordeonTitlePropsType = {
     title: string
+   onClick:()=>void
+
+
 }
 
 function AccordeonTitle(props: AccordeonTitlePropsType) {
-    return <h1>{props.title}</h1>
+    return <h1 onClick={()=>{props.onClick()}}>{props.title}</h1>
 }
 
 

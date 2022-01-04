@@ -1,21 +1,26 @@
 import React from "react";
 
+export type RaitingValueType=0|1|2|3|4|5;
+
 type RaitingPropsType = {
-    value: number;
+    value: RaitingValueType;
 }
 
 export function Raiting(props: RaitingPropsType) {
-    return (                              //мы всегда возращаем пять звездочек, поэтому не будем дублировать код
+    return (
+        //мы всегда возращаем пять звездочек, поэтому не будем дублировать код
+
+        // {props.value > 0}-это операция сравнения в которой возращается true or false
         <div>
-            <Star selected={props.value > 0}/><button>1</button> {/*внутри пишем условие скольким звездочкам гореть*/}
-            <Star selected={props.value > 1}/> <button>2</button> {/*идет сравнение валуе и цифры . и если true-то будут гореть*/}
-            <Star selected={props.value > 2}/><button>3</button>
-            <Star selected={props.value > 3}/><button>4</button>
-            <Star selected={props.value > 4}/><button>5</button>
+        <Star selected={props.value > 0}/> {/*внутри пишем условие скольким звездочкам гореть*/}
+            <Star selected={props.value > 1}/> {/*идет сравнение валуе и цифры . и если true-то будут гореть*/}
+            <Star selected={props.value > 2}/>
+            <Star selected={props.value > 3}/>
+            <Star selected={props.value > 4}/>
         </div>
     )
 
-    //   if(props.value===1){
+    //   if(props.value===1){   //сверху идет оптимизация кода который так дублируется:
     //       return (
     //           <div>
     //               <Star selected={true} />
