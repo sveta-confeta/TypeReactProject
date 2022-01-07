@@ -3,23 +3,25 @@ import React from "react";
 type AccordeonPropsType = {
     title: string
     collapsed: boolean
+    onClick:()=>void
 
 }
 
 
 export function Accordeon(props: AccordeonPropsType) {
     return <>
-        <AccordeonTitle title={props.title}/>
+        <AccordeonTitle title={props.title} onClick={props.onClick}/>
         {!props.collapsed && <AccordeonBody/>}
     </>
 }
 
 type AccordeonTitlePropsType = {
     title: string
+    onClick:()=>void
 }
 
 function AccordeonTitle(props: AccordeonTitlePropsType) {
-    return <h1>{props.title}</h1>
+    return <h1 onClick={props.onClick}>{props.title}</h1>
 }
 
 

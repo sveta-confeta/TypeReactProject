@@ -2,18 +2,20 @@ import React, {useState} from "react";
 
 
 type PropsType = {
-   on:boolean
-    setOn:
+    //on: boolean //так как придут false || true
 }
 
  export const OnOff = (props: PropsType) => {
+
+     let[on,setOn]=useState(false);
+
     const onStyle = {
         width: ' 30px',
         height: '20px',
         border: '1px solid black',
         display:'inline-block',
         padding:'5px',
-        backgroundColor: props.on ? 'green' :'#fff',  //если включена true,значит цвет зеленый,иначе красный
+        backgroundColor: on ? 'green' :'#fff',  //если включена true,значит цвет зеленый,иначе красный
     };    //будем задавать стили и превращаем их в обьект
     const offStyle = {
         width: ' 30px',
@@ -22,7 +24,7 @@ type PropsType = {
         display:'inline-block',
         marginLeft:'5px',
         padding:'5px',
-        backgroundColor: props.on ? '#fff': 'red',  //задаем цвет выключенной кнопке
+        backgroundColor: on ? '#fff': 'red',  //задаем цвет выключенной кнопке
     };
     const indicatorStyle = {
         width: '10px',
@@ -31,7 +33,7 @@ type PropsType = {
         border: '1px solid black',
         display:'inline-block',
         marginLeft:'10px',
-        backgroundColor:props.on ?'green': 'red',  //лампочка может быть либо зеленой либо красной
+        backgroundColor:on ?'green': 'red',  //лампочка может быть либо зеленой либо красной
     };
 
     return (

@@ -4,6 +4,7 @@ export type RaitingValueType=0|1|2|3|4|5;
 
 type RaitingPropsType = {
     value: RaitingValueType;
+    onClick:(value:RaitingValueType)=>void;
 }
 
 export function Raiting(props: RaitingPropsType) {
@@ -12,11 +13,11 @@ export function Raiting(props: RaitingPropsType) {
 
         // {props.value > 0}-это операция сравнения в которой возращается true or false
         <div>
-        <Star selected={props.value > 0}/> {/*внутри пишем условие скольким звездочкам гореть*/}
-            <Star selected={props.value > 1}/> {/*идет сравнение валуе и цифры . и если true-то будут гореть*/}
-            <Star selected={props.value > 2}/>
-            <Star selected={props.value > 3}/>
-            <Star selected={props.value > 4}/>
+        <Star selected={props.value > 0} onClick={props.onClick} value={1}/> {/*внутри пишем условие скольким звездочкам гореть*/}
+            <Star selected={props.value > 1}  onClick={props.onClick} value={2}/> {/*идет сравнение валуе и цифры . и если true-то будут гореть*/}
+            <Star selected={props.value > 2}  onClick={props.onClick} value={3}/>
+            <Star selected={props.value > 3}  onClick={props.onClick} value={4}/>
+            <Star selected={props.value > 4}  onClick={props.onClick} value={5}/>
         </div>
     )
 
@@ -88,14 +89,16 @@ export function Raiting(props: RaitingPropsType) {
 
 type StarPropsType = {
     selected: boolean;
+    onClick:(value:RaitingValueType)=>void;
+    value:RaitingValueType
 }
 
 function Star(props: StarPropsType) {
-    if (props.selected === true) {
-        return <span><b>star</b> </span>;
-    } else {
-        return <span>star </span>;
-    }
+    return( <span onClick={()=>{
+        props.onClick(props.value);
+        }}>{props.selected ? <b>star</b> : 'star' }</span>
+    )
+
 
 
 }

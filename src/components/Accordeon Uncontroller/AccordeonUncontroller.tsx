@@ -13,12 +13,7 @@ export function UncontrolledAccordeon(props: AccordeonPropsType) {
     return <>
         <AccordeonTitle
             title={props.title}
-           onClick={()=>{setCollapsed(!collapsed)} }
-
-        />
-
-
-
+           onClick={()=>{setCollapsed(!collapsed)} }/>
         {!collapsed && <AccordeonBody/>}
     </>
 }
@@ -27,8 +22,6 @@ export function UncontrolledAccordeon(props: AccordeonPropsType) {
 type AccordeonTitlePropsType = {
     title: string
    onClick:()=>void
-
-
 }
 
 function AccordeonTitle(props: AccordeonTitlePropsType) {
