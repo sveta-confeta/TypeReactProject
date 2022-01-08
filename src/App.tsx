@@ -22,7 +22,7 @@ function App(props: any) {
 
 
     return < div className="App">
-        <OnOff on={true} setOn={C}/>
+        <OnOff on={on} onClick={setOn} />
         {/*<OnOff on={false}/>*/}
         {/*<OnOff on={true}/>*/}
         ///
@@ -36,7 +36,7 @@ function App(props: any) {
         }}/>
         {/*<Accordeon title={"а я в серединке"} collapsed={true} />*/}
         <Technologies/>
-        <Raiting value={raitingValue} onClick={setRaitingValue}/>
+        <Raiting value={raitingValue} onClick={()=>{setRaitingValue (raitingValue)} }/>
         {/*<Raiting value={2}/>*/}
         {/*<Raiting value={3}/>*/}
         {/*<Raiting value={4}/>*/}

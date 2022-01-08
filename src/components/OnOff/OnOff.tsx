@@ -3,7 +3,7 @@ import React, {useState} from "react";
 
 type PropsType = {
    on:boolean
-    setOn:
+    onClick:(on:boolean)=>void
 }
 
  export const OnOff = (props: PropsType) => {
@@ -36,8 +36,8 @@ type PropsType = {
 
     return (
         <div>
-            <div style={onStyle} onClick={()=>{setOn(true)}}>On</div>
-            <div style={offStyle} onClick={()=>{setOn(false)}}>Off</div>
+            <div style={onStyle} onClick={()=>props.onClick(true)}>On</div>
+            <div style={offStyle} onClick={()=>props.onClick(false)}>Off</div>
             <div style={indicatorStyle}></div>
         </div>
     )
