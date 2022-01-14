@@ -7,6 +7,8 @@ import {Accordeon} from "./components/Accordeon/Accordeon";
 import {OnOff} from "./components/OnOff/OnOff";
 import {UncontrolledAccordeon} from "./components/Accordeon Uncontroller/AccordeonUncontroller";
 import {UncontrolledRaiting} from "./Uncontroller_Raiting/Raiting";
+import {Textarea} from "./components/Textarea";
+import {v1} from "uuid";
 
 function App(props: any) {
 
@@ -20,8 +22,20 @@ function App(props: any) {
     let[on,setOn]=useState(false);
     //on: boolean //так как придут false || true
 
+    //textarea
+    let[textareaData,setTextareaData]=useState([
+        {id:v1(),textValue:' '}
+    ])
+    const addTextarea=(value:string)=>{
+      setTextareaData([ {id:v1(),textValue:value},...textareaData])
+    }
+
+
+
+
 
     return < div className="App">
+        <Textarea addTextarea={addTextarea} textareaData={textareaData}/>
         <OnOff on={on} onClick={setOn} />
         {/*<OnOff on={false}/>*/}
         {/*<OnOff on={true}/>*/}
