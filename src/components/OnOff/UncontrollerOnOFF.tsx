@@ -3,11 +3,12 @@ import React, {useState} from "react";
 
 type PropsType = {
     //on: boolean //так как придут false || true
+    defaultOn?:boolean
 }
 
  export const OnOff = (props: PropsType) => {
 
-     let[on,setOn]=useState(false);
+     let[on,setOn]=useState(props.defaultOn ? props.defaultOn : false);//было просто false
 
     const onStyle = {
         width: ' 30px',

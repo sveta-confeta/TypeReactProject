@@ -1,8 +1,13 @@
 import React, {useState} from "react";
 
+export type RaitingValueType=0|1|2|3|4|5;
 
-export function UncontrolledRaiting() {
-    let [value, setValue] = useState(0);
+type RaitingPropsType={
+    defaultValue?:RaitingValueType
+}
+
+export function UncontrolledRaiting(props:RaitingPropsType) {
+    let [value, setValue] = useState<RaitingValueType>(props.defaultValue ? props.defaultValue : 0); //внесем изменения в связи с появлением defaultValue. старое значени было просто 0
 
 
     return (
@@ -30,7 +35,7 @@ type StarPropsType = {
 function Star(props: StarPropsType) {
     return <span onClick={() => {
         props.setValue(props.value) //при клике на кнопку вызывается value кнопки за которой следит дядя и перерисовывает)
-    }}> //
+    }}>
         {props.selected ? <b>star </b> : "star "} </span>
 
 

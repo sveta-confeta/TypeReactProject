@@ -2,7 +2,7 @@ import React from "react";
 
 export type RaitingValueType=0|1|2|3|4|5;
 
-type RaitingPropsType = {
+export type RaitingPropsType = {
     value: RaitingValueType;
     onClick:(value:RaitingValueType)=>void;
 }
@@ -96,7 +96,7 @@ type StarPropsType = {
 function Star(props: StarPropsType) {
     return( <span onClick={()=>
         props.onClick}>
-        {props.selected ? <b>star</b> : 'star' }</span>
+        {props.selected ? <b> star</b> : ' star' }</span>
     )
 
 
