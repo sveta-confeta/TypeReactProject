@@ -1,0 +1,18 @@
+
+
+.wrapper span.main{
+    border: 1px solid black;
+    display: inline-block;
+    min-width: 45px;
+    min-height: 20px;
+}
+.items{
+    border:1px black solid;
+    position: absolute;
+    padding: 5px;
+
+}
+.item.selected{
+    background-color: #66bf3c;
+    color: white;
+}
