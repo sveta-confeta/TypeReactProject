@@ -1,19 +1,32 @@
-import React, {useState} from "react";
+import React, {useReducer, useState} from "react";
 
 type AccordeonPropsType = {
     title: string
+}
+type ActionType={
+    type:string
 
+}
 
+const reducer=(state:boolean,action:ActionType)=>{//перепишем useState на редьюссер. в нем только true/false
+    if(action.type==='TOGGLE-COLLAPSED'){
+        return !state;
+    }
+    return state;
 }
 
 
 export function UncontrolledAccordeon(props: AccordeonPropsType) {
 
-    let[collapsed,setCollapsed]=useState(false); //так как по умолчанию колабсед фолсе,то !colapsed это true
+    //let[collapsed,setCollapsed]=useState(false); //так как по умолчанию колабсед фолсе,то !colapsed это true
+    let [collapsed,collapsedDispatch]=useReducer(reducer,false);
     return <>
+        {/*<AccordeonTitle*/}
+        {/*    title={props.title}*/}
+        {/*   onClick={()=>{setCollapsed(!collapsed)} }/>*/}
         <AccordeonTitle
             title={props.title}
-           onClick={()=>{setCollapsed(!collapsed)} }/>
+            onClick={()=>{collapsedDispatch({type:'TOGGLE-COLLAPSED'})} }/>
         {!collapsed && <AccordeonBody/>}
     </>
 }
