@@ -3,14 +3,19 @@ import React, {useReducer, useState} from "react";
 type AccordeonPropsType = {
     title: string
 }
-type ActionType={
+export type ActionType={
     type:string
 
 }
 
-const reducer=(state:boolean,action:ActionType)=>{//перепишем useState на редьюссер. в нем только true/false
+export type StateType={
+    collapsed:boolean;
+}
+
+export const reducer=(state:StateType,action:ActionType):StateType=>{//перепишем useState на редьюссер. в нем только true/false
     if(action.type==='TOGGLE-COLLAPSED'){
-        return !state;
+         return {...state,collapsed: !state.collapsed};
+
     }
     return state;
 }
@@ -19,7 +24,7 @@ const reducer=(state:boolean,action:ActionType)=>{//перепишем useState 
 export function UncontrolledAccordeon(props: AccordeonPropsType) {
 
     //let[collapsed,setCollapsed]=useState(false); //так как по умолчанию колабсед фолсе,то !colapsed это true
-    let [collapsed,collapsedDispatch]=useReducer(reducer,false);
+    let [state,collapsedDispatch]=useReducer(reducer,{collapsed:false});
     return <>
         {/*<AccordeonTitle*/}
         {/*    title={props.title}*/}
@@ -27,7 +32,7 @@ export function UncontrolledAccordeon(props: AccordeonPropsType) {
         <AccordeonTitle
             title={props.title}
             onClick={()=>{collapsedDispatch({type:'TOGGLE-COLLAPSED'})} }/>
-        {!collapsed && <AccordeonBody/>}
+        {!state.collapsed && <AccordeonBody/>}
     </>
 }
 // <button onClick={()=>{setCollapsed(!collapsed)}}>Toggle</button>
