@@ -12,6 +12,10 @@ export type StateType={
     collapsed:boolean;
 }
 
+//переписываем useState на useReducer.
+//стейтом является collapsed:false
+//инструкция что нужно делать с обязательным свойством type
+
 export const reducer=(state:StateType,action:ActionType):StateType=>{//перепишем useState на редьюссер. в нем только true/false
     if(action.type==='TOGGLE-COLLAPSED'){
          return {...state,collapsed: !state.collapsed};
@@ -24,7 +28,7 @@ export const reducer=(state:StateType,action:ActionType):StateType=>{//пере�
 export function UncontrolledAccordeon(props: AccordeonPropsType) {
 
     //let[collapsed,setCollapsed]=useState(false); //так как по умолчанию колабсед фолсе,то !colapsed это true
-    let [state,collapsedDispatch]=useReducer(reducer,{collapsed:false});
+    let [collapsed,collapsedDispatch]=useReducer(reducer,{collapsed:false});
     return <>
         {/*<AccordeonTitle*/}
         {/*    title={props.title}*/}
@@ -32,7 +36,7 @@ export function UncontrolledAccordeon(props: AccordeonPropsType) {
         <AccordeonTitle
             title={props.title}
             onClick={()=>{collapsedDispatch({type:'TOGGLE-COLLAPSED'})} }/>
-        {!state.collapsed && <AccordeonBody/>}
+        {!collapsed && <AccordeonBody/>}
     </>
 }
 // <button onClick={()=>{setCollapsed(!collapsed)}}>Toggle</button>
